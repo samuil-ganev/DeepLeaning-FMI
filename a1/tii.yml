@@ -1,0 +1,15 @@
+name: tii
+channels:
+  - soumith
+  - defaults
+dependencies:
+  - pytorch
+  - python
+  - ipython
+  - numpy
+  - scipy
+  - tqdm
+  - docopt
+  - nltk
+  - torchvision
+  - matplotlib
