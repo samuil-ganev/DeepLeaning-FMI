@@ -19,7 +19,6 @@ def generateCode(model, char2id, startSentence, limit=1000, temperature=1.):
     # temperature е температурата за промяна на разпределението за следващ символ
     
     result = startSentence[1:]
-    print(result, end='')
 
     #############################################################################
     ###  Тук следва да се имплементира генерацията на текста
@@ -30,6 +29,8 @@ def generateCode(model, char2id, startSentence, limit=1000, temperature=1.):
     id2char = {v: k for k, v in char2id.items()}
 
     endChar = '†'
+
+    model eval()
 
     with torch.no_grad():
         for iter in range(limit):
@@ -46,11 +47,11 @@ def generateCode(model, char2id, startSentence, limit=1000, temperature=1.):
             if next_char == char2id[endChar]:
                 break
             sequence.append(next_char)
-            print(id2char[next_char], end='')
             result += id2char[next_char]
 
+    model train()
 
     #### Край на Вашия код
     #############################################################################
 
-    #return result
+    return result
