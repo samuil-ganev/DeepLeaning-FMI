@@ -30,7 +30,7 @@ def generateCode(model, char2id, startSentence, limit=1000, temperature=1.):
 
     endChar = '†'
 
-    model eval()
+    model.eval()
 
     with torch.no_grad():
         for iter in range(limit):
@@ -49,7 +49,7 @@ def generateCode(model, char2id, startSentence, limit=1000, temperature=1.):
             sequence.append(next_char)
             result += id2char[next_char]
 
-    model train()
+    model.train()
 
     #### Край на Вашия код
     #############################################################################
