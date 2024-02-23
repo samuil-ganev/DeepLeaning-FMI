@@ -84,7 +84,7 @@ class MultiHeadAttn(torch.nn.Module):
             attn_mat = attn_mat.masked_fill(mask.unsqueeze(0).unsqueeze(1), -float('inf'))
 
         if padding_mask is not None:
-            attn_mat = (attn_mat + padding_mask) * self.scale
+            attn_mat = (attn_mat + padding_mask + padding_mask.transpose(2, 3)) * self.scale
         else:
             attn_mat *= self.scale
 
